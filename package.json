@@ -1,33 +1,36 @@
 {
-  "name": "starter-ts",
-  "version": "1.0.0",
+  "name": "vite-plugin-page-types",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.10.0",
   "description": "",
   "author": "",
   "license": "MIT",
-  "homepage": "https://github.com/<github name>/<repo name>#readme",
+  "homepage": "https://github.com/cccboy-dev/vite-plugin-page-types#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<github name>/<repo name>.git"
+    "url": "git+https://github.com/cccboy-dev/vite-plugin-page-types.git"
   },
   "bugs": {
-    "url": "https://github.com/<github name>/<repo name>/issues"
+    "url": "https://github.com/cccboy-dev/vite-plugin-page-types/issues"
   },
   "keywords": [],
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
-      "require": "./dist/index.cjs.js",
+      "require": "./dist/index.js",
       "import": "./dist/index.mjs"
+    },
+    "./client": {
+      "types": "./client.d.ts"
     }
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.mjs",
-  "browser": "./dist/index.umd.js",
-  "types": "./types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "types/index.d.ts",
   "files": [
     "dist",
-    "types"
+    "types",
+    "client.d.ts"
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -46,15 +49,28 @@
     "lint:source": "eslint . --ignore-pattern '**/*.spec.ts'",
     "lint:spec": "eslint '**/**.spec.ts'",
     "clean": "rimraf dist types",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "release-it"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0 || ^3.0.0-0"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "fast-glob": "^3.2.12",
+    "ts-morph": "^16.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
+    "@antfu/utils": "^0.6.0",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-angular": "^17.1.0",
     "@release-it/conventional-changelog": "^5.1.1",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@types/debug": "^4.1.7",
+    "@types/node": "^18.11.4",
     "@vitest/coverage-c8": "^0.22.1",
+    "case": "^1.6.3",
     "concurrently": "^7.3.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
@@ -69,6 +85,7 @@
     "tslib": "^2.4.0",
     "tsx": "^3.9.0",
     "typescript": "^4.8.2",
+    "vite": "^3.1.8",
     "vitest": "^0.22.1"
   },
   "lint-staged": {

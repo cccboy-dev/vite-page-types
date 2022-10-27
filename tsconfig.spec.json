@@ -1,5 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["**/*.spec.ts", "vitest/globals"],
-  "exclude": ["node_modules", "dist"]
-}

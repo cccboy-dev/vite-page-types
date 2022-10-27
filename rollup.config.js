@@ -10,12 +10,7 @@ export default defineConfig({
     },
     {
       format: 'cjs',
-      file: './dist/index.cjs.js',
-    },
-    {
-      format: 'umd',
-      file: './dist/index.umd.js',
-      name: 'lalala',
+      file: './dist/index.js',
     },
   ],
   plugins: [typescript(
